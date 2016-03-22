@@ -1,5 +1,6 @@
 var beers = [];
 
+// CLICK FUNCTION FOR POSTING
 $('.post-beer').on('click', function (e) {
   e.preventDefault();
 
@@ -11,6 +12,28 @@ $('.post-beer').on('click', function (e) {
   updateBeers();
 
 });
+
+// CLICK FUNCTION FOR SORTING
+$('.sort-beer').on('click', function (e) {
+  e.preventDefault();
+
+  updateBeers();
+  sortBeer();
+});
+
+var sortBeer = function () {
+  beers.sort(function(a, b){
+    return a.rating - b.rating;
+    console.log(beers);
+    // var a1= a.name, b1= b.name;
+    // if(a1== b1) return 0;
+    // return a1> b1? 1: -1;
+});
+}
+
+
+
+
 
 var addBeer = function (name, category, rating){  
   var br = {
@@ -31,3 +54,5 @@ var updateBeers = function () {
     
   }
 }
+
+
